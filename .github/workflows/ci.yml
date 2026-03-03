@@ -1,4 +1,4 @@
-name: CI Pipeline SpringBoot Angular MySQL
+name: CI Pipeline 
 
 on:
   push:
