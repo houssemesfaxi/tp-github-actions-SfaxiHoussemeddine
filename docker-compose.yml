@@ -1,11 +1,11 @@
 version: "3.3"
 services:
   angular-app:
-    image: ${DOCKERHUB_USERNAME}/angular-app
+    image: sfaxi/angular-app
     ports:
       - "0.0.0.0:4200:80"
   spring-boot-app:
-    image: ${DOCKERHUB_USERNAME}/angular-app
+    image: sfaxi/angular-app
     ports:
       - "0.0.0.0:8081:8081"
     environment:
