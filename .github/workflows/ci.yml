@@ -39,7 +39,10 @@ jobs:
 
       - name: Push frontend image
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/angular-app
-
+      
+      - name: Set DockerHub Username env
+        run: echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> $GITHUB_ENV
+      
       - name: Run Docker Compose
         run: docker compose up -d
 
