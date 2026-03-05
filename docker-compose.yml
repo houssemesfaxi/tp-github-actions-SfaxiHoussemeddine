@@ -5,6 +5,7 @@ services:
     ports:
       - "0.0.0.0:4200:80"
   spring-boot-app:
+    command: sh -c "until nc -z mysql 3306 ; do echo waiting for mysql; sleep 2; done; java -jar /app/app.jar"
     image: sfaxi/springboot-app
     ports:
       - "0.0.0.0:8081:8081"
@@ -20,7 +21,6 @@ services:
       - SPRING_MVC_CORS_ALLOWED_HEADERS=*
     depends_on:
       - mysql:
-            restart: on-failure
 
   mysql:
     image: mysql:5.7
