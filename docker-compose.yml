@@ -20,7 +20,7 @@ services:
       - SPRING_MVC_CORS_ALLOWED_HEADERS=*
     depends_on:
       - mysql:
-            condition: service_healthy
+            restart: on-failure
 
   mysql:
     image: mysql:5.7
@@ -34,7 +34,7 @@ services:
     volumes:
       - demo:/var/lib/mysql
     healthcheck:
-       test: ["CMD", "mysqladmin" , "ping" ,"-h" ,"localhost", "-proot"]
+       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
        interval: 5s
        timeout: 3s
        retries: 20
