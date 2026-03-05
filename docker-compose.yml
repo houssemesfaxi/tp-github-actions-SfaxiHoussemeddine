@@ -37,6 +37,6 @@ services:
        test: ["CMD", "mysqladmin" , "ping" ,"-h" ,"localhost", "-proot"]
        interval: 5s
        timeout: 3s
-       retries: 20s
+       retries: 20
 volumes:
   demo:
